@@ -3,426 +3,2001 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Espaço Dev</title>
+
+    <title>Voz Delas | Colégio Visconde</title>
+
+    <meta name="description"
+          content="Projeto escolar sobre prevenção e enfrentamento da violência contra a mulher.">
+
     <style>
-        :root {
-            --bg-color: #f4f4f9;
-            --text-color: #333;
-            --card-bg: #ffffff;
-            --accent-color: #6c5ce7;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        [data-theme="dark"] {
-            --bg-color: #1e1e24;
-            --text-color: #f4f4f9;
-            --card-bg: #2a2a35;
-            --accent-color: #a29bfe;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .container {
-            text-align: center;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-
-        p {
-            font-size: 1.1em;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8fc;
+            color: #3b2435;
             line-height: 1.6;
         }
 
-        .btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f0d7e5;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.2s;
+            color: #9c2c66;
+            font-size: 20px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b83280, #e85d9e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 21px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #593b4d;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 11px;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #fde4ef;
+            color: #a22965;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 670px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 15%, rgba(222, 84, 145, .18), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(147, 70, 173, .13), transparent 35%),
+                linear-gradient(135deg, #fff6fb, #fdf0f8);
+        }
+
+        .hero-content {
+            width: min(1150px, 92%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f9dce9;
+            color: #9b2c62;
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1;
+            margin-bottom: 25px;
+            color: #6f2048;
+        }
+
+        .hero h1 span {
+            color: #c43778;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #644d5a;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            padding: 14px 21px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: .2s;
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(110, 30, 72, .12);
+        }
+
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, #b42d70, #d84c91);
+        }
+
+        .btn-secondary {
+            color: #8e275b;
+            background: white;
+            border: 1px solid #ecc5d8;
+        }
+
+        .btn-danger {
+            color: white;
+            background: #b32642;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,.8);
+            border: 1px solid #f0d4e1;
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 0 25px 70px rgba(105, 40, 75, .12);
+        }
+
+        .heart {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero-card h2 {
+            color: #78224d;
+            margin-bottom: 10px;
+        }
+
+        .hero-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .hero-card li {
+            margin: 13px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #b22d6e;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #632142;
+            margin: 8px 0 12px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: auto;
+            color: #735b68;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #f0dbe5;
+            border-radius: 20px;
+            padding: 27px;
+            box-shadow: 0 10px 30px rgba(100, 35, 70, .06);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #7c2451;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6e5964;
+        }
+
+        /* =========================
+           VIOLENCE TYPES
+        ========================= */
+
+        .violence-section {
+            background: #fff;
+        }
+
+        .type-card {
+            border-left: 5px solid #c43c79;
+        }
+
+        /* =========================
+           EMERGENCY
+        ========================= */
+
+        .emergency {
+            background: linear-gradient(135deg, #651f42, #9f2b61);
+            color: white;
+        }
+
+        .emergency-container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .emergency h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .emergency p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #ffe9f3;
+        }
+
+        .emergency-box {
+            background: rgba(255,255,255,.12);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 25px;
+        }
+
+        .phone-config {
+            margin: 20px auto;
+            max-width: 450px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .phone-config input {
+            flex: 1;
+            border: none;
+            border-radius: 10px;
+            padding: 13px;
+            font-size: 15px;
+        }
+
+        /* =========================
+           IA
+        ========================= */
+
+        .ai-area {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .ai-info {
+            background: linear-gradient(135deg, #fff0f7, #f7eaff);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .ai-info h3 {
+            font-size: 27px;
+            color: #702450;
+            margin-bottom: 15px;
+        }
+
+        .chat {
+            background: white;
+            border: 1px solid #efd9e5;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(100, 30, 70, .08);
+            display: flex;
+            flex-direction: column;
+            min-height: 500px;
+        }
+
+        .chat-header {
+            padding: 18px;
+            background: #a92d68;
+            color: white;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+            background: #fffafd;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            font-size: 14px;
+        }
+
+        .bot {
+            background: #f5e6ee;
+            color: #573d4b;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user {
+            background: #b63277;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid #ead9e2;
+            gap: 8px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: 1px solid #e6cfdb;
+            border-radius: 10px;
+            padding: 12px;
+            outline: none;
+        }
+
+        /* =========================
+           QUIZ
+        ========================= */
+
+        .quiz {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(100, 30, 70, .08);
+            border: 1px solid #efdbe5;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h3 {
+            margin-bottom: 14px;
+            color: #6e2549;
+        }
+
+        .option {
+            display: block;
+            padding: 12px 15px;
+            border: 1px solid #e6d2dd;
+            margin: 8px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .option:hover {
+            background: #fff0f7;
+            border-color: #d56a9a;
+        }
+
+        .option input {
+            margin-right: 8px;
+        }
+
+        #quizResult,
+        #reportResult {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            display: none;
+        }
+
+        .result-success {
+            background: #e9f8ef;
+            color: #235f39;
+        }
+
+        .result-warning {
+            background: #fff4df;
+            color: #76531e;
+        }
+
+        /* =========================
+           RELATO
+        ========================= */
+
+        .report-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            border: 1px solid #efd9e5;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(100, 30, 70, .07);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #633e50;
+        }
+
+        .form-group textarea,
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            border: 1px solid #e3ced9;
+            border-radius: 10px;
+            padding: 13px;
+            font: inherit;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .privacy {
+            background: #fff6da;
+            color: #70561e;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SAFETY
+        ========================= */
+
+        .safety {
+            background: #faf5f8;
+        }
+
+        .safety-list {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .safety-item {
+            display: flex;
+            gap: 18px;
+            background: white;
+            margin: 12px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #efdce5;
+        }
+
+        .safety-number {
+            min-width: 38px;
+            height: 38px;
+            background: #f6dce8;
+            color: #9c2b64;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #341522;
+            color: #ead9e1;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer .author {
+            margin-top: 8px;
+            color: #d99ab8;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #38202c;
+            color: white;
+            padding: 15px 18px;
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: .3s;
+            z-index: 2000;
+            max-width: 330px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .hero-content,
+            .ai-area {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 70px 0;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 65px 15px;
+            }
+
+            .hero-content {
+                width: 94%;
+            }
+
+            .hero-card,
+            .quiz,
+            .report-box {
+                padding: 23px;
+            }
+
+            .phone-config {
+                flex-direction: column;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Olá, Mundo! 👋</h1>
-        <p>Este é o meu primeiro site hospedado diretamente pelo GitHub Pages. O tema é livre, então decidi criar esta página interativa!</p>
-        <button class="btn" id="themeToggle">Mudar Tema</button>
-    </div>
-
-    <script>
-        const toggleButton = document.getElementById('themeToggle');
-        
-        toggleButton.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fast Burger</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#f5f5f5;
-}
-
-header{
-    background:#d62828;
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
-}
-
-.hero{
-    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:120px 20px;
-}
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:25px;
-}
-
-.btn{
-    background:#ffbe0b;
-    color:black;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.menu{
-    padding:60px 20px;
-    text-align:center;
-}
-
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:40px;
-}
-
-.card{
-    background:white;
-    width:280px;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card h3{
-    margin:15px;
-}
-
-.card p{
-    margin:0 15px 15px;
-}
-
-.preco{
-    color:#d62828;
-    font-size:22px;
-    font-weight:bold;
-}
-
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
-}
-</style>
-
-</head>
-<body>
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <header>
-    <h2>🍔 Fast Burger</h2>
+    <div class="navbar">
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Cardápio</a>
-        <a href="#">Promoções</a>
-        <a href="#">Contato</a>
-    </nav>
+        <div class="logo">
+            <div class="logo-icon">♡</div>
+            Voz Delas
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#violencia">Violência</a>
+            <a href="#ia">IA de Apoio</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#relato">Relatar</a>
+            <a href="#seguranca">Segurança</a>
+        </nav>
+
+    </div>
 </header>
 
-<section class="hero">
-    <h1>O Melhor Hambúrguer da Cidade</h1>
-    <p>Entrega rápida, ingredientes frescos e muito sabor.</p>
-    <a class="btn" href="#">Peça Agora</a>
-</section>
 
-<section class="menu">
-    <h2>Nosso Cardápio</h2>
+<!-- =========================
+     HERO
+========================= -->
 
-    <div class="cards">
+<section class="hero" id="inicio">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-            <h3>X-Burger</h3>
-            <p>Pão artesanal, carne 180g, queijo e molho especial.</p>
-            <p class="preco">R$ 29,90</p>
+    <div class="hero-content">
+
+        <div>
+
+            <span class="tag">
+                PROJETO ESCOLAR • COLÉGIO VISCONDE
+            </span>
+
+            <h1>
+                Sua voz<br>
+                <span>importa.</span>
+            </h1>
+
+            <p>
+                Um espaço educativo de informação, acolhimento e conscientização
+                sobre a violência contra a mulher.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#ia" class="btn btn-primary">
+                    🤖 Conversar com a IA
+                </a>
+
+                <a href="#relato" class="btn btn-secondary">
+                    📝 Relatar uma situação
+                </a>
+
+                <a href="#emergencia" class="btn btn-danger">
+                    📞 Emergência
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600">
-            <h3>Batata Frita</h3>
-            <p>Batatas crocantes com cheddar e bacon.</p>
-            <p class="preco">R$ 19,90</p>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600">
-            <h3>Combo Especial</h3>
-            <p>Hambúrguer + Batata + Refrigerante.</p>
-            <p class="preco">R$ 44,90</p>
+        <div class="hero-card">
+
+            <div class="heart">🩷</div>
+
+            <h2>
+                Você não está sozinha.
+            </h2>
+
+            <p>
+                A violência nunca é culpa da vítima. Informação e apoio
+                podem ajudar a identificar situações de violência e buscar
+                caminhos seguros.
+            </p>
+
+            <ul>
+
+                <li>
+                    <span>✓</span>
+                    Informação e conscientização
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Espaço de acolhimento
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Ferramentas educativas
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Orientações de segurança
+                </li>
+
+            </ul>
+
         </div>
 
     </div>
+
 </section>
 
-<footer>
-    © 2026 Fast Burger • Delivery todos os dias
-</footer>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fast Burger</title>
+<!-- =========================
+     SOBRE VIOLÊNCIA
+========================= -->
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+<section id="violencia" class="violence-section">
 
-body{
-    background:#f5f5f5;
-}
+    <div class="section-container">
 
-header{
-    background:#d62828;
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        <div class="section-title">
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
-}
+            <small>Conhecimento protege</small>
 
-.hero{
-    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:120px 20px;
-}
+            <h2>
+                O que é violência contra a mulher?
+            </h2>
 
-.hero h1{
-    font-size:55px;
-    margin-bottom:15px;
-}
+            <p>
+                Violência contra a mulher não acontece somente quando existe
+                agressão física. Ela também pode aparecer em comportamentos
+                de controle, ameaças, humilhações e outras formas de abuso.
+            </p>
 
-.hero p{
-    font-size:20px;
-    margin-bottom:25px;
-}
-
-.btn{
-    background:#ffbe0b;
-    color:black;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.menu{
-    padding:60px 20px;
-    text-align:center;
-}
-
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:40px;
-}
-
-.card{
-    background:white;
-    width:280px;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card h3{
-    margin:15px;
-}
-
-.card p{
-    margin:0 15px 15px;
-}
-
-.preco{
-    color:#d62828;
-    font-size:22px;
-    font-weight:bold;
-}
-
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
-}
-</style>
-
-</head>
-<body>
-
-<header>
-    <h2>🍔 Fast Burger</h2>
-
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Cardápio</a>
-        <a href="#">Promoções</a>
-        <a href="#">Contato</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>O Melhor Hambúrguer da Cidade</h1>
-    <p>Entrega rápida, ingredientes frescos e muito sabor.</p>
-    <a class="btn" href="#">Peça Agora</a>
-</section>
-
-<section class="menu">
-    <h2>Nosso Cardápio</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-            <h3>X-Burger</h3>
-            <p>Pão artesanal, carne 180g, queijo e molho especial.</p>
-            <p class="preco">R$ 29,90</p>
         </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600">
-            <h3>Batata Frita</h3>
-            <p>Batatas crocantes com cheddar e bacon.</p>
-            <p class="preco">R$ 19,90</p>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600">
-            <h3>Combo Especial</h3>
-            <p>Hambúrguer + Batata + Refrigerante.</p>
-            <p class="preco">R$ 44,90</p>
+        <div class="cards">
+
+            <div class="card type-card">
+
+                <div class="card-icon">🤕</div>
+
+                <h3>Violência física</h3>
+
+                <p>
+                    Qualquer comportamento que cause ou tente causar dano
+                    ao corpo, como empurrões, tapas, socos ou outras agressões.
+                </p>
+
+            </div>
+
+
+            <div class="card type-card">
+
+                <div class="card-icon">💔</div>
+
+                <h3>Violência psicológica</h3>
+
+                <p>
+                    Ameaças, humilhações, manipulação, chantagem, isolamento,
+                    controle e comportamentos que diminuem a autoestima.
+                </p>
+
+            </div>
+
+
+            <div class="card type-card">
+
+                <div class="card-icon">💰</div>
+
+                <h3>Violência patrimonial</h3>
+
+                <p>
+                    Controle ou destruição de dinheiro, documentos, objetos,
+                    bens ou recursos utilizados pela mulher.
+                </p>
+
+            </div>
+
+
+            <div class="card type-card">
+
+                <div class="card-icon">🗣️</div>
+
+                <h3>Violência moral</h3>
+
+                <p>
+                    Comportamentos como calúnia, difamação, insultos e
+                    acusações utilizadas para atacar a reputação da mulher.
+                </p>
+
+            </div>
+
+
+            <div class="card type-card">
+
+                <div class="card-icon">🚫</div>
+
+                <h3>Violência sexual</h3>
+
+                <p>
+                    Situações em que uma pessoa é pressionada, forçada ou
+                    constrangida a participar de uma situação sexual sem
+                    consentimento.
+                </p>
+
+            </div>
+
+
+            <div class="card type-card">
+
+                <div class="card-icon">🔒</div>
+
+                <h3>Controle e isolamento</h3>
+
+                <p>
+                    Impedir contatos, vigiar mensagens, controlar amizades,
+                    localização, roupas ou decisões também pode fazer parte
+                    de uma relação abusiva.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
+
+<!-- =========================
+     EMERGENCY
+========================= -->
+
+<section class="emergency" id="emergencia">
+
+    <div class="emergency-container">
+
+        <h2>📞 Chamada emergencial</h2>
+
+        <p>
+            Se você estiver em perigo imediato, procure um local seguro,
+            fique próxima de pessoas de confiança e procure o serviço
+            de emergência disponível na sua região.
+        </p>
+
+        <div class="emergency-box">
+
+            <h3>
+                Configure o número de emergência
+            </h3>
+
+            <p>
+                Digite o número utilizado na sua região para que o botão
+                possa iniciar a chamada pelo celular.
+            </p>
+
+            <div class="phone-config">
+
+                <input
+                    type="tel"
+                    id="emergencyNumber"
+                    placeholder="Ex.: número de emergência"
+                >
+
+                <button
+                    class="btn btn-danger"
+                    onclick="makeEmergencyCall()"
+                >
+                    📞 Ligar agora
+                </button>
+
+            </div>
+
+            <small>
+                Em computadores, a chamada pode depender do aplicativo
+                de telefone instalado. Em celulares, o botão pode abrir
+                o aplicativo de chamadas.
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     IA
+========================= -->
+
+<section id="ia">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <small>Acolhimento</small>
+
+            <h2>🤖 IA de Apoio</h2>
+
+            <p>
+                Converse com uma assistente educativa sobre sentimentos,
+                situações de violência ou formas de buscar ajuda.
+            </p>
+
+        </div>
+
+
+        <div class="ai-area">
+
+            <div class="ai-info">
+
+                <h3>
+                    Você pode falar.
+                </h3>
+
+                <p>
+                    Esta ferramenta foi criada para oferecer uma primeira
+                    orientação e acolhimento.
+                </p>
+
+                <br>
+
+                <p>
+                    Você pode escrever frases como:
+                </p>
+
+                <br>
+
+                <ul>
+
+                    <li>
+                        "Estou com medo."
+                    </li>
+
+                    <li>
+                        "Meu namorado controla meu celular."
+                    </li>
+
+                    <li>
+                        "Aconteceu uma agressão."
+                    </li>
+
+                    <li>
+                        "Preciso me acalmar."
+                    </li>
+
+                    <li>
+                        "Não sei o que fazer."
+                    </li>
+
+                </ul>
+
+                <br>
+
+                <strong>
+                    ⚠️ Esta IA é uma ferramenta educativa e não substitui
+                    atendimento profissional ou serviços de emergência.
+                </strong>
+
+            </div>
+
+
+            <div class="chat">
+
+                <div class="chat-header">
+                    🤖 Assistente Voz Delas
+                </div>
+
+
+                <div
+                    class="chat-messages"
+                    id="chatMessages"
+                >
+
+                    <div class="message bot">
+                        Oi. Eu estou aqui para ouvir você. 🩷
+                        Se quiser, conte o que está acontecendo.
+                    </div>
+
+                </div>
+
+
+                <div class="chat-input">
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Digite sua mensagem..."
+                        onkeydown="handleEnter(event)"
+                    >
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="sendMessage()"
+                    >
+                        Enviar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ CALMA
+========================= -->
+
+<section id="quiz" class="violence-section">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <small>Respire</small>
+
+            <h2>🧘 Quiz de acolhimento</h2>
+
+            <p>
+                Este pequeno exercício pode ajudar você a perceber
+                como está se sentindo neste momento.
+            </p>
+
+        </div>
+
+
+        <div class="quiz">
+
+            <form id="calmQuiz">
+
+                <div class="question">
+
+                    <h3>
+                        1. Como você está se sentindo agora?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="calma">
+                        Estou relativamente tranquila.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="ansiosa">
+                        Estou ansiosa ou preocupada.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q1" value="medo">
+                        Estou com medo.
+                    </label>
+
+                </div>
+
+
+                <div class="question">
+
+                    <h3>
+                        2. Você está em um local seguro neste momento?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="sim">
+                        Sim.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="nao">
+                        Não tenho certeza.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q2" value="perigo">
+                        Não.
+                    </label>
+
+                </div>
+
+
+                <div class="question">
+
+                    <h3>
+                        3. O que você gostaria de fazer agora?
+                    </h3>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="respirar">
+                        Fazer um exercício de respiração.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="conversar">
+                        Conversar com alguém de confiança.
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="q3" value="ajuda">
+                        Procurar ajuda.
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="analyzeQuiz()"
+                >
+                    Ver resultado
+                </button>
+
+            </form>
+
+
+            <div id="quizResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RELATO
+========================= -->
+
+<section id="relato">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <small>Registro educativo</small>
+
+            <h2>📝 Relatar uma situação</h2>
+
+            <p>
+                Este formulário ajuda a organizar informações sobre uma
+                situação. Ele não envia automaticamente o relato para
+                autoridades ou para o colégio.
+            </p>
+
+        </div>
+
+
+        <div class="report-box">
+
+            <div class="privacy">
+
+                🔒 <strong>Privacidade:</strong>
+                não coloque senhas, documentos, endereço ou outras
+                informações extremamente sensíveis neste formulário.
+                Se estiver em perigo, priorize sua segurança.
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    O que aconteceu?
+                </label>
+
+                <select id="reportType">
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+                    <option>
+                        Ameaça
+                    </option>
+
+                    <option>
+                        Agressão física
+                    </option>
+
+                    <option>
+                        Violência psicológica
+                    </option>
+
+                    <option>
+                        Violência sexual
+                    </option>
+
+                    <option>
+                        Violência patrimonial
+                    </option>
+
+                    <option>
+                        Violência moral
+                    </option>
+
+                    <option>
+                        Controle ou perseguição
+                    </option>
+
+                    <option>
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Conte o que aconteceu
+                </label>
+
+                <textarea
+                    id="reportText"
+                    placeholder="Descreva a situação com o máximo de segurança possível..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Como você está neste momento?
+                </label>
+
+                <select id="reportFeeling">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option>
+                        Estou tranquila
+                    </option>
+
+                    <option>
+                        Estou preocupada
+                    </option>
+
+                    <option>
+                        Estou com medo
+                    </option>
+
+                    <option>
+                        Estou em perigo
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <button
+                    class="btn btn-primary"
+                    onclick="generateReport()"
+                >
+                    Gerar resumo
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="clearReport()"
+                >
+                    Limpar
+                </button>
+
+            </div>
+
+
+            <div id="reportResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEGURANÇA
+========================= -->
+
+<section id="seguranca" class="safety">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <small>Prioridade</small>
+
+            <h2>🛡️ Dicas de segurança</h2>
+
+            <p>
+                Algumas atitudes podem ajudar a preservar a segurança
+                enquanto você busca apoio.
+            </p>
+
+        </div>
+
+
+        <div class="safety-list">
+
+            <div class="safety-item">
+
+                <div class="safety-number">1</div>
+
+                <div>
+                    <strong>Procure um lugar seguro</strong>
+
+                    <p>
+                        Se houver perigo, vá para um local onde existam
+                        outras pessoas e, quando possível, procure alguém
+                        de confiança.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="safety-item">
+
+                <div class="safety-number">2</div>
+
+                <div>
+                    <strong>Converse com alguém</strong>
+
+                    <p>
+                        Uma pessoa de confiança, profissional da escola,
+                        familiar ou serviço especializado pode ajudar.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="safety-item">
+
+                <div class="safety-number">3</div>
+
+                <div>
+                    <strong>Não se culpe</strong>
+
+                    <p>
+                        A responsabilidade pela violência é de quem pratica
+                        a violência, não da vítima.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="safety-item">
+
+                <div class="safety-number">4</div>
+
+                <div>
+                    <strong>Proteja suas informações</strong>
+
+                    <p>
+                        Se o agressor monitora seu celular ou computador,
+                        procure utilizar um dispositivo seguro para pedir ajuda.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="safety-item">
+
+                <div class="safety-number">5</div>
+
+                <div>
+                    <strong>Procure ajuda profissional</strong>
+
+                    <p>
+                        Em situações de violência, buscar apoio profissional
+                        pode ajudar a encontrar caminhos seguros.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    © 2026 Fast Burger • Delivery todos os dias
+
+    <p>
+        <strong>Voz Delas</strong> — Projeto educativo sobre violência contra a mulher.
+    </p>
+
+    <p class="author">
+        Colégio Visconde • Autora: Gabrielly Vilaça Marangoni
+    </p>
+
+    <p style="margin-top: 15px; font-size: 13px;">
+        Este site possui finalidade educativa e não substitui atendimento
+        profissional, jurídico ou emergencial.
+    </p>
+
 </footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+    /* =====================================================
+       FUNÇÕES GERAIS
+    ===================================================== */
+
+    function showToast(message) {
+
+        const toast = document.getElementById("toast");
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3500);
+    }
+
+
+    /* =====================================================
+       CHAMADA EMERGENCIAL
+    ===================================================== */
+
+    function makeEmergencyCall() {
+
+        const number =
+            document.getElementById("emergencyNumber").value.trim();
+
+        if (!number) {
+
+            showToast(
+                "Digite primeiro o número de emergência utilizado na sua região."
+            );
+
+            return;
+        }
+
+        const confirmed = confirm(
+            "Você está prestes a iniciar uma chamada para " +
+            number +
+            ". Deseja continuar?"
+        );
+
+        if (confirmed) {
+
+            window.location.href =
+                "tel:" + number.replace(/[^\d+]/g, "");
+
+        }
+    }
+
+
+    /* =====================================================
+       CHATBOT / IA EDUCATIVA
+    ===================================================== */
+
+    function addMessage(text, type) {
+
+        const chat = document.getElementById("chatMessages");
+
+        const message = document.createElement("div");
+
+        message.className =
+            "message " + type;
+
+        message.textContent = text;
+
+        chat.appendChild(message);
+
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+
+    function getAIResponse(text) {
+
+        const message =
+            text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+        if (
+            message.includes("perigo") ||
+            message.includes("agred") ||
+            message.includes("machuc") ||
+            message.includes("ameaç") ||
+            message.includes("ameac")
+        ) {
+
+            return "Sinto muito que você esteja passando por isso. Sua segurança é prioridade. Se houver perigo imediato, tente ir para um local seguro e procure ajuda de uma pessoa de confiança ou de um serviço de emergência da sua região.";
+
+        }
+
+        if (
+            message.includes("medo") ||
+            message.includes("assustada") ||
+            message.includes("assustado")
+        ) {
+
+            return "É compreensível sentir medo em uma situação difícil. Tente respirar lentamente: inspire pelo nariz por 4 segundos, segure por 2 e solte o ar por 6. Se puder, fique perto de alguém em quem confia.";
+
+        }
+
+        if (
+            message.includes("celular") ||
+            message.includes("senha") ||
+            message.includes("control")
+        ) {
+
+            return "Controlar celular, senhas, amizades, localização ou contatos pode ser um comportamento abusivo. Você merece ter privacidade e autonomia. Se isso estiver acontecendo com você, considere conversar com alguém de confiança em um dispositivo seguro.";
+
+        }
+
+        if (
+            message.includes("culpa") ||
+            message.includes("culpada") ||
+            message.includes("culpado")
+        ) {
+
+            return "A violência não é culpa da vítima. A responsabilidade é de quem pratica a violência. Você merece respeito, segurança e apoio.";
+
+        }
+
+        if (
+            message.includes("acalmar") ||
+            message.includes("ansiosa") ||
+            message.includes("ansiedade")
+        ) {
+
+            return "Vamos respirar juntos. Inspire lentamente pelo nariz contando 1, 2, 3, 4. Agora solte o ar devagar contando 1, 2, 3, 4, 5, 6. Repita algumas vezes. Você não precisa resolver tudo de uma vez.";
+
+        }
+
+        if (
+            message.includes("ajuda") ||
+            message.includes("falar") ||
+            message.includes("conversar")
+        ) {
+
+            return "Buscar ajuda é um ato de coragem. Pense em uma pessoa segura com quem você possa conversar. Pode ser alguém da família, uma amiga, um professor ou outro adulto de confiança.";
+
+        }
+
+        if (
+            message.includes("obrigad") ||
+            message.includes("valeu")
+        ) {
+
+            return "Você é bem-vinda. 🩷 Lembre-se: você merece ser tratada com respeito.";
+
+        }
+
+        return "Obrigada por confiar em mim. Você pode me contar um pouco mais sobre o que está acontecendo ou dizer como está se sentindo. Eu vou tentar oferecer uma orientação educativa e acolhedora.";
+
+    }
+
+
+    function sendMessage() {
+
+        const input =
+            document.getElementById("chatInput");
+
+        const text =
+            input.value.trim();
+
+        if (!text) return;
+
+        addMessage(text, "user");
+
+        input.value = "";
+
+        setTimeout(() => {
+
+            const response =
+                getAIResponse(text);
+
+            addMessage(response, "bot");
+
+        }, 500);
+
+    }
+
+
+    function handleEnter(event) {
+
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+
+    }
+
+
+    /* =====================================================
+       QUIZ DE ACOLHIMENTO
+    ===================================================== */
+
+    function analyzeQuiz() {
+
+        const q1 =
+            document.querySelector(
+                'input[name="q1"]:checked'
+            );
+
+        const q2 =
+            document.querySelector(
+                'input[name="q2"]:checked'
+            );
+
+        const q3 =
+            document.querySelector(
+                'input[name="q3"]:checked'
+            );
+
+        const result =
+            document.getElementById("quizResult");
+
+
+        if (!q1 || !q2 || !q3) {
+
+            result.style.display = "block";
+
+            result.className =
+                "result-warning";
+
+            result.innerHTML =
+                "Por favor, responda todas as perguntas antes de continuar.";
+
+            return;
+        }
+
+
+        result.style.display = "block";
+
+
+        if (q2.value === "perigo") {
+
+            result.className =
+                "result-warning";
+
+            result.innerHTML = `
+                <strong>🛡️ Sua segurança vem primeiro.</strong><br><br>
+                Se você estiver em perigo neste momento, tente ir para um
+                local seguro e procure ajuda de uma pessoa de confiança
+                ou de um serviço de emergência da sua região.
+            `;
+
+            return;
+        }
+
+
+        if (
+            q1.value === "medo" ||
+            q1.value === "ansiosa"
+        ) {
+
+            result.className =
+                "result-success";
+
+            result.innerHTML = `
+                <strong>🌷 Vamos com calma.</strong><br><br>
+                Inspire lentamente pelo nariz durante 4 segundos.
+                <br>
+                Segure por 2 segundos.
+                <br>
+                Solte o ar lentamente durante 6 segundos.
+                <br><br>
+                Repita algumas vezes. Você não precisa enfrentar
+                tudo sozinha.
+            `;
+
+            return;
+        }
+
+
+        if (q3.value === "conversar") {
+
+            result.className =
+                "result-success";
+
+            result.innerHTML = `
+                <strong>💗 Conversar pode ajudar.</strong><br><br>
+                Escolha uma pessoa em quem você realmente confia
+                e diga como está se sentindo.
+            `;
+
+            return;
+        }
+
+
+        if (q3.value === "ajuda") {
+
+            result.className =
+                "result-success";
+
+            result.innerHTML = `
+                <strong>🤝 Procurar ajuda é importante.</strong><br><br>
+                Você não precisa resolver uma situação de violência
+                sozinha. Procure uma pessoa de confiança ou um
+                profissional que possa orientar você.
+            `;
+
+            return;
+        }
+
+
+        result.className =
+            "result-success";
+
+        result.innerHTML = `
+            <strong>🌸 Continue cuidando de você.</strong><br><br>
+            Reserve alguns minutos para respirar, beber água,
+            descansar e permanecer em um ambiente onde você se sinta segura.
+        `;
+
+    }
+
+
+    /* =====================================================
+       RELATÓRIO
+    ===================================================== */
+
+    function generateReport() {
+
+        const type =
+            document.getElementById("reportType").value;
+
+        const text =
+            document.getElementById("reportText").value.trim();
+
+        const feeling =
+            document.getElementById("reportFeeling").value;
+
+        const result =
+            document.getElementById("reportResult");
+
+
+        if (!type || !text || !feeling) {
+
+            result.style.display = "block";
+
+            result.className =
+                "result-warning";
+
+            result.innerHTML =
+                "Preencha os campos principais para gerar o resumo.";
+
+            return;
+        }
+
+
+        const summary = `
+RELATO — PROJETO VOZ DELAS
+
+Tipo de situação:
+${type}
+
+Como estou neste momento:
+${feeling}
+
+Descrição:
+${text}
+
+Observação:
+Este documento foi criado pelo usuário para organizar
+as informações de uma situação. Ele não foi enviado
+automaticamente para nenhuma instituição.
+        `.trim();
+
+
+        result.style.display = "block";
+
+        result.className =
+            "result-success";
+
+        result.innerHTML = `
+            <strong>📝 Resumo criado.</strong>
+            <br><br>
+            <pre style="
+                white-space: pre-wrap;
+                font-family: Arial;
+                background: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                border: 1px solid #d8e8dc;
+            ">${escapeHTML(summary)}</pre>
+
+            <br>
+
+            <button
+                class="btn btn-primary"
+                onclick="copyReport()"
+            >
+                📋 Copiar resumo
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="downloadReport()"
+            >
+                💾 Salvar arquivo
+            </button>
+        `;
+
+        window.currentReport = summary;
+
+    }
+
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+    function copyReport() {
+
+        if (!window.currentReport) return;
+
+        navigator.clipboard.writeText(
+            window.currentReport
+        );
+
+        showToast(
+            "Resumo copiado para a área de transferência."
+        );
+
+    }
+
+
+    function downloadReport() {
+
+        if (!window.currentReport) return;
+
+        const blob =
+            new Blob(
+                [window.currentReport],
+                { type: "text/plain;charset=utf-8" }
+            );
+
+        const url =
+            URL.createObjectURL(blob);
+
+        const link =
+            document.createElement("a");
+
+        link.href = url;
+
+        link.download =
+            "relato-voz-delas.txt";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        URL.revokeObjectURL(url);
+
+    }
+
+
+    function clearReport() {
+
+        document.getElementById("reportType").value = "";
+
+        document.getElementById("reportText").value = "";
+
+        document.getElementById("reportFeeling").value = "";
+
+        const result =
+            document.getElementById("reportResult");
+
+        result.style.display = "none";
+
+        result.innerHTML = "";
+
+    }
+
+</script>
 
 </body>
 </html>
